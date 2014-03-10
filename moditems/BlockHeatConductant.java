@@ -41,7 +41,7 @@ public class BlockHeatConductant extends BlockContainer{
     	TileEntityHeatConductant tile = (TileEntityHeatConductant) p_149674_1_.getTileEntity(p_149674_2_, p_149674_3_, p_149674_4_);
     	if (tile != null)
     	{
-    		color = (int) tile.Temperature;
+    		color = tile.color;
     	}
     }
 	

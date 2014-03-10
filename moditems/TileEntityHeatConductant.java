@@ -14,6 +14,8 @@ public class TileEntityHeatConductant extends TileEntity{
 
 	double Temperature = 0;
 	
+	int color = 0x000000;
+	
 	Block Block;
 	
 	public TileEntityHeatConductant(Block block) {
@@ -41,15 +43,23 @@ public class TileEntityHeatConductant extends TileEntity{
    	
    	@Override
    	public void updateEntity() {
-   		checkblocks();
+   		checkblocks(worldObj.getBlock(xCoord+1, yCoord, zCoord).getLocalizedName());
    		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, Block, 50);
    		this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
    	}
    	
-   	public void checkblocks(){
-   		if(worldObj.getBlock(xCoord+1, yCoord, zCoord).getUnlocalizedName() == "tile.lava"){
-   			Temperature = Temperature + 0.1;
-   			System.out.println("jaj");
+   	public void checkblocks(String block){
+   		if(block == "Fire"){
+   			if(Temperature != 600){
+   				Temperature = Temperature + 0.1;
+   			}
+   		}
+   		if(block == "Lava"){
+   			if(Temperature != 700){
+   				Temperature = Temperature + 0.5;
+   			}else{
+   				System.out.println("BOOM");
+   			}
    		}
    	}
 }
