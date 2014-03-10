@@ -16,7 +16,7 @@ public class TileEntityHeatConductant extends TileEntity{
 
 	double Temperature = 21;
 	
-	int color = 0x000000;
+	int color = 0x555555;
 	
 	Block Block;
 	
@@ -45,6 +45,13 @@ public class TileEntityHeatConductant extends TileEntity{
    		return true;
    	}
    	
+   	public int getColor(){
+   		int intcolor = 0;
+   		int green = (int) ((50.0 / 700.0) * this.Temperature);
+   		int red = (int) ((255.0 / 700.0) * this.Temperature);
+   		return ((green*256) + (red*65536));
+   	}
+   	
    	@Override
    	public void updateEntity() {
    		checkblocks(worldObj.getBlock(xCoord+1, yCoord, zCoord).getLocalizedName(), "1 0 0");
@@ -54,6 +61,8 @@ public class TileEntityHeatConductant extends TileEntity{
    		checkblocks(worldObj.getBlock(xCoord, yCoord, zCoord+1).getLocalizedName(), "0 0 1");
    		checkblocks(worldObj.getBlock(xCoord, yCoord, zCoord-1).getLocalizedName(), "0 0 -1");
    		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, Block, 1);
+   		System.out.println(getColor());
+   		this.color = getColor();
    		this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
    	}
    	
