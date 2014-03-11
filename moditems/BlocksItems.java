@@ -5,7 +5,8 @@ import molecularscience.worldgen.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.item.ItemFood;
+import net.minecraft.potion.Potion;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlocksItems {
