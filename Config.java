@@ -4,6 +4,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import molecularscience.api.MolecularApi;
+import molecularscience.electrolyzer.TileEntityElectrolyzer;
 import molecularscience.moditems.BlocksItems;
 import molecularscience.moditems.TileEntityHeatConductant;
 
@@ -82,5 +83,6 @@ public class Config {
 	
 	public static void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityHeatConductant.class, "molecularscience.heatconductant");
+		GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "molecularscience.electrolyzer");
 	}
 }

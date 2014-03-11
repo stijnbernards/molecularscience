@@ -43,9 +43,7 @@ public class BlockHeatConductant extends BlockContainer{
 		return new TileEntityHeatConductant(this, conductiveness);
 	}
 	
-    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
-    {
-    }
+    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_){}
     
     @Override
     public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
