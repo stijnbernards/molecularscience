@@ -67,10 +67,12 @@ public class TileEntityHeatConductant extends TileEntity{
    	}
    	
    	public void checkblocks(String block, String coord){
+   		boolean aircool = true;
    		if(block.equals("Fire")){
    			if(Temperature <= 600.0){
    				Temperature = Temperature + 0.1;
    			}
+   			aircool = false;
    		}
    		if(block.equals("Lava")){
    			if(Temperature <= 700.0){
@@ -78,11 +80,13 @@ public class TileEntityHeatConductant extends TileEntity{
    			}else{
    				
    			}
+   			aircool = false;
    		}
    		if(block.equals("Water")){
    			if(Temperature >= 10.0){
    				Temperature = Temperature - 0.3;
    			}
+   			aircool = false;
    		}
    		if(block.equals("HeatConductant")){
    			int gettiletemp = 0;
@@ -97,9 +101,18 @@ public class TileEntityHeatConductant extends TileEntity{
    	    	
    	    	if(gettiletemp >= this.Temperature){
    	    		double add = gettiletemp - this.Temperature;
-   	    		add = add / 1000;
+   	    		add = add / 50;
    	    		Temperature = Temperature + add;
+   	    	}else{
+   	    		double add = gettiletemp - this.Temperature;
+   	    		add = add / 50;
+   	    		Temperature = Temperature - add;
    	    	}
+   	    	aircool = false;
+   		}
+   		
+   		if(aircool = true){
+   			Temperature = Temperature - 0.3;
    		}
    	}
 }

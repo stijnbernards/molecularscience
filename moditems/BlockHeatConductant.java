@@ -1,5 +1,6 @@
 package molecularscience.moditems;
 
+import java.util.List;
 import java.util.Random;
 
 import molecularscience.MolecularScience;
@@ -7,9 +8,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -50,5 +53,13 @@ public class BlockHeatConductant extends BlockContainer{
     		temp = tile.color;
     	}
    		return temp;
+    }
+    
+    public boolean isOpaqueCube(){
+    	return false;
+    }
+    
+    public boolean renderAsNormalBlock(){
+    	return false;
     }
 }
