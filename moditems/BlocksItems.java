@@ -20,7 +20,6 @@ public class BlocksItems {
 	public static Block BlockSlowHeatConductant;
 	public static Block BlockMediumHeatConductant;
 	public static Block BlockFastHeatConductant;
-	public static Block Electrolyzer;
 //	public static Block ResearchTableIdle;
 //	public static Block ResearchTableActive;
 	
@@ -45,7 +44,6 @@ public class BlocksItems {
         BlockSlowHeatConductant = new BlockHeatConductant(Material.rock, 50).setHardness(3.0F).setBlockName("BlockSlowHeatConductant");
         BlockMediumHeatConductant = new BlockHeatConductant(Material.rock, 25).setHardness(3.0F).setBlockName("BlockMediumHeatConductant");
         BlockFastHeatConductant = new BlockHeatConductant(Material.rock, 5).setHardness(3.0F).setBlockName("BlockFastHeatConductant");
-        Electrolyzer = new molecularscience.electrolyzer.Electrolyzer(false).setHardness(3.0F).setBlockName("Electrolyzer");
 //        ResearchTableIdle = new ResearchTable(false).setBlockName("ResearchTableIdle").setCreativeTab(MolecularScience.Blocks);
 //        ResearchTableActive = new ResearchTable(true).setBlockName("ResearchTableActive");
         
@@ -54,7 +52,6 @@ public class BlocksItems {
         GameRegistry.registerBlock(BlockSlowHeatConductant, "BlockSlowHeatConductant");
         GameRegistry.registerBlock(BlockMediumHeatConductant, "BlockMediumHeatConductant");
         GameRegistry.registerBlock(BlockFastHeatConductant, "BlockFastHeatConductant");
-        GameRegistry.registerBlock(Electrolyzer, "Electrolyzer");
 //        GameRegistry.registerBlock(ResearchTableIdle, "ResearchTableIdle");
 //        GameRegistry.registerBlock(ResearchTableActive, "ResearchTableActive");
 	}

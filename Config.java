@@ -83,6 +83,5 @@ public class Config {
 	
 	public static void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityHeatConductant.class, "molecularscience.heatconductant");
-		GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "molecularscience.electrolyzer");
 	}
 }
