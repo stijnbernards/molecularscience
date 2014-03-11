@@ -35,7 +35,7 @@ public class ItemMineral extends Item{
  
         for (int i = 0; i < icons.length; i++)
         {
-           // icons[i] = par1IconRegister.registerIcon(Tutorial.modid + ":" + (this.getUnlocalizedName().substring(5)) + i);
+           icons[i] = par1IconRegister.registerIcon("molecularscience:" + (this.getUnlocalizedName().substring(5)) + i);
         }
     }
     
