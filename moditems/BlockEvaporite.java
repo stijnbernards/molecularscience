@@ -3,6 +3,8 @@ package molecularscience.moditems;
 import java.util.ArrayList;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import molecularscience.MolecularScience;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

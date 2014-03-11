@@ -38,7 +38,7 @@ public class ItemMineral extends Item{
            // icons[i] = par1IconRegister.registerIcon(Tutorial.modid + ":" + (this.getUnlocalizedName().substring(5)) + i);
         }
     }
- 
+    
     public static final String[] names = new String[] { "Sylvite", "Halite", "Carnallite", "Langbeinite", "PolyHalite", "Kainite", "Anhydrite", "Gypsum", "Kieserite", "Dolomite", "Calcite", "Magnesite" };
  
     @Override
