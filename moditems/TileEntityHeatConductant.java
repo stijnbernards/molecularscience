@@ -87,7 +87,7 @@ public class TileEntityHeatConductant extends TileEntity{
    		}
    		if(block.equals("Water")){
    			if(Temperature >= 10.0){
-   				Temperature = Temperature - 0.3;
+   				Temperature = Temperature - 20;
    				if(Temperature >= 100){
    					//worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
    				}

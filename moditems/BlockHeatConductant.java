@@ -30,16 +30,9 @@ public class BlockHeatConductant extends BlockContainer{
 		this.setBlockTextureName("molecularscience:BlockHeatConductant");
 		this.conductiveness = conduct;
 	}
-	
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return 0x000000;
-    }
     
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		System.out.println(conductiveness);
 		return new TileEntityHeatConductant(this, conductiveness);
 	}
 	
