@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -51,6 +52,8 @@ public class MolecularScience {
 			return Items.apple;
 		}
 	};
+	
+    public static DamageSource HeatConductant = new DamageSource("HeatConductant");
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event){

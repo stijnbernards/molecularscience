@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -21,10 +22,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockHeatConductant extends BlockContainer{
 	
-	public BlockHeatConductant(Material material) {
+	int conductiveness = 0;
+	
+	public BlockHeatConductant(Material material, int conduct) {
 		super(material);
 		this.setCreativeTab(MolecularScience.MBlocks);
 		this.setBlockTextureName("molecularscience:BlockHeatConductant");
+		this.conductiveness = conduct;
 	}
 	
     @SideOnly(Side.CLIENT)
@@ -35,12 +39,18 @@ public class BlockHeatConductant extends BlockContainer{
     
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TileEntityHeatConductant(this);
+		System.out.println(conductiveness);
+		return new TileEntityHeatConductant(this, conductiveness);
 	}
 	
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
     {
-    	int temp = 0;
+    }
+    
+    @Override
+    public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
+    {
+        p_149670_5_.attackEntityFrom(DamageSource.fallingBlock, 2);
     }
 	
     @SideOnly(Side.CLIENT)

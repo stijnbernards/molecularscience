@@ -17,11 +17,13 @@ public class TileEntityHeatConductant extends TileEntity{
 	double Temperature = 21;
 	
 	int color = 0x555555;
+	int conductiveness = 0;
 	
 	Block Block;
 	
-	public TileEntityHeatConductant(Block block) {
+	public TileEntityHeatConductant(Block block, int conduct) {
 		this.Block = block;
+		this.conductiveness = conduct;
 	}
 
 	@Override
@@ -68,6 +70,8 @@ public class TileEntityHeatConductant extends TileEntity{
    	
    	public void checkblocks(String block, String coord){
    		boolean aircool = true;
+			
+		String[] coords = coord.split(" ");
    		if(block.equals("Fire")){
    			if(Temperature <= 600.0){
    				Temperature = Temperature + 0.1;
@@ -85,34 +89,32 @@ public class TileEntityHeatConductant extends TileEntity{
    		if(block.equals("Water")){
    			if(Temperature >= 10.0){
    				Temperature = Temperature - 0.3;
+   				if(Temperature >= 100){
+   					worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+   				}
    			}
    			aircool = false;
    		}
-   		if(block.equals("HeatConductant")){
+   		if(block.contains("HeatConductant")){
    			int gettiletemp = 0;
-   			
-   			String[] coords = coord.split(" ");
    			
    	    	TileEntityHeatConductant tile = (TileEntityHeatConductant) worldObj.getTileEntity(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
    	    	if (tile != null)
    	    	{
    	    		gettiletemp = (int) tile.Temperature;
    	    	}
-   	    	
    	    	if(gettiletemp >= this.Temperature){
    	    		double add = gettiletemp - this.Temperature;
-   	    		add = add / 50;
+   	    		add = add / conductiveness;
    	    		Temperature = Temperature + add;
-   	    	}else{
-   	    		double add = gettiletemp - this.Temperature;
-   	    		add = add / 50;
-   	    		Temperature = Temperature - add;
    	    	}
    	    	aircool = false;
    		}
    		
-   		if(aircool = true){
-   			Temperature = Temperature - 0.3;
+   		if(aircool == true){
+   			if(Temperature >= 20){
+   				Temperature = Temperature - 0.3;
+   			}
    		}
    	}
 }

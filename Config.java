@@ -1,7 +1,10 @@
 package molecularscience;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import molecularscience.api.MolecularApi;
+import molecularscience.moditems.BlocksItems;
 import molecularscience.moditems.TileEntityHeatConductant;
 
 public class Config {
@@ -73,7 +76,8 @@ public class Config {
 	}
 	
 	public static void InitRecipes(){
-		
+//		GameRegistry.addRecipe(new ItemStack(BlocksItems.BlockFastHeatConductant, 5), "", "lll", 
+//		        'l', );
 	}
 	
 	public static void registerTileEntity(){
