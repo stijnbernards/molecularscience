@@ -1,17 +1,14 @@
 package molecularscience;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import molecularscience.api.GuiHandler;
 import molecularscience.api.MSEventHandler;
+import molecularscience.electrolyzer.BlockElectrolyzer;
+import molecularscience.electrolyzer.TileEntityElectrolyzer;
 import molecularscience.moditems.BlocksItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -21,6 +18,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = MolecularScience.MODID, version = MolecularScience.VERSION)
 public class MolecularScience {
@@ -28,7 +27,8 @@ public class MolecularScience {
 	//versie en id
     public static final String MODID = "MolecularScience";
     public static final String VERSION = "1.0.0";
-   
+    
+    public static Block blockTiny;
     
 	@Instance(value = "MolecularScience")
 	public static MolecularScience instance;
@@ -62,6 +62,9 @@ public class MolecularScience {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
+        blockTiny = new BlockElectrolyzer();
+        GameRegistry.registerBlock(blockTiny, "blockTiny");
+        GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "containerTiny");
 		BlocksItems.InitItems();
 		BlocksItems.InitBlocks();
 		BlocksItems.WorldGen();
@@ -71,6 +74,7 @@ public class MolecularScience {
 		Config.registerMineralProps();
 		Config.registerTileEntity();
         proxy.registerRenderers();
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 	
 	@EventHandler
