@@ -1,8 +1,11 @@
 package molecularscience.moditems;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import molecularscience.api.MolecularApi;
+import molecularscience.api.MolecularCraftingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

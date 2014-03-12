@@ -5,6 +5,8 @@ import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
@@ -116,5 +118,13 @@ public class ExtendedPlayer implements IExtendedEntityProperties
 			}
 		}
 		return false;
+	}
+	
+	public static Item getCrafting(){
+		if(IsResearched("Halite")){
+			return Items.bed;
+		}else{
+			return Items.apple;
+		}
 	}
 }
