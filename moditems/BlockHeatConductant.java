@@ -22,18 +22,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockHeatConductant extends BlockContainer{
 	
-	int conductiveness = 0;
-	
 	public BlockHeatConductant(Material material, int conduct) {
 		super(material);
 		this.setCreativeTab(MolecularScience.MBlocks);
 		this.setBlockTextureName("molecularscience:BlockHeatConductant");
-		this.conductiveness = conduct;
 	}
     
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TileEntityHeatConductant(this, conductiveness);
+		return new TileEntityHeatConductant();
 	}
 	
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_){}

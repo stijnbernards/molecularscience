@@ -17,14 +17,6 @@ public class TileEntityHeatConductant extends TileEntity{
 	double Temperature = 21;
 	
 	int color = 0x555555;
-	int conductiveness = 0;
-	
-	Block Block;
-	
-	public TileEntityHeatConductant(Block block, int conduct) {
-		this.Block = block;
-		this.conductiveness = conduct;
-	}
 
 	@Override
    	public void writeToNBT(NBTTagCompound nbt)
@@ -62,7 +54,7 @@ public class TileEntityHeatConductant extends TileEntity{
    		checkblocks(worldObj.getBlock(xCoord, yCoord-1, zCoord).getLocalizedName(), "0 -1 0");
    		checkblocks(worldObj.getBlock(xCoord, yCoord, zCoord+1).getLocalizedName(), "0 0 1");
    		checkblocks(worldObj.getBlock(xCoord, yCoord, zCoord-1).getLocalizedName(), "0 0 -1");
-   		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, Block, 1);
+   		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, this.getBlockType(), 1);
    		this.color = getColor();
    		this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
    	}
@@ -103,6 +95,11 @@ public class TileEntityHeatConductant extends TileEntity{
    	    		gettiletemp = (int) tile.Temperature;
    	    	}
    	    	if(gettiletemp >= this.Temperature){
+   	    		int conductiveness = 0;
+   	    		String[] test = this.getBlockType().getLocalizedName().split(" ");
+   	    		if(test[0].equals("Fast")){
+   	    			conductiveness = 5;
+   	    		}
    	    		double add = gettiletemp - this.Temperature;
    	    		add = add / conductiveness;
    	    		Temperature = Temperature + add;
