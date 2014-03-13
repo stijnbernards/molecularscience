@@ -4,6 +4,7 @@ import java.util.Random;
 
 import molecularscience.moditems.BlocksItems;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -31,14 +32,14 @@ public class WorldGen implements IWorldGenerator {
 	 
 	    private void generateSurface(World world, Random random, int x, int z)
 	    {
+	    	//this.addOreSpawn(BlocksItems.ChalcopyrietOre, world, random, x, z, 16, 16, 30, 100, 5, 256);
 	        this.addOreSpawn(BlocksItems.OrePlutonium, world, random, x, z, 16, 16, 1, 5, 15, 50);
-	        this.addOreSpawn(BlocksItems.Evaporite, world, random, x, z, 16, 16, 20 + random.nextInt(6), 5, 15, 50);
+	        this.addOreSpawn(BlocksItems.Evaporite, world, random, x, z, 16, 16, 20 + random.nextInt(6), 5, 5, 50);
 	    }
 	 
 	    private void generateNether(World world, Random random, int x, int z)
 	    {
 	    }
-	 
 	    public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY)
 	    {
 	        assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
@@ -54,6 +55,7 @@ public class WorldGen implements IWorldGenerator {
 	            int posY = minY + random.nextInt(diffBtwnMinMaxY);
 	            int posZ = blockZPos + random.nextInt(maxZ);
 	            (new WorldGenMinable(block, maxVeinSize)).generate(world, random, posX, posY, posZ);
+	            System.out.println("generated");
 	        }
 	    }
 }
