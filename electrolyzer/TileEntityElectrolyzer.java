@@ -1,7 +1,10 @@
 package molecularscience.electrolyzer;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -10,9 +13,12 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityElectrolyzer extends TileEntity implements IInventory {
 
         private ItemStack[] inv;
-
+    	private int time;
+        public int progress;
+        private int resultItem = 3;
+        
         public TileEntityElectrolyzer(){
-                inv = new ItemStack[2];
+                inv = new ItemStack[4];
         }
         
         @Override
@@ -48,6 +54,87 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
                 }
                 return stack;
         }
+        
+        @Override
+    	public void updateEntity(){
+    	   if(!worldObj.isRemote){
+    		   int item = getAvailableSlot();
+    		   if(inv[item] != null){
+    			   Item type = inv[item].getItem();
+    			   ItemStack result = ElectrolyzerResults.getResult(item, type);
+    			   time = ElectrolyzerResults.getMaxTime(item, type);
+
+    			   if(result != null){
+    				   if(progress > time){
+    						if (inv[resultItem] == null){
+    							inv[resultItem] = result.copy();
+    			            }
+    						else if (inv[resultItem].isItemEqual(result)){
+    							if(inv[resultItem].stackSize + result.stackSize <= getInventoryStackLimit()){
+    								inv[resultItem].stackSize += result.stackSize;
+    							}
+    						}
+    						if(inv[item] != null){
+    							if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
+    								inv[item].stackSize -= ElectrolyzerResults.getReduceItem(item, type);
+    							}
+    							if(inv[item].stackSize <= 0){
+    								inv[item] = null;
+    							}
+    						}
+    						progress = 0;
+    				   }
+    				   if(inv[resultItem] != null){
+    						   if(inv[resultItem].isItemEqual(result)){
+    							   if(inv[resultItem].stackSize < getInventoryStackLimit() || inv[resultItem].stackSize < result.getItem().getItemStackLimit()){
+    								   if(inv[item] != null){
+    									   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
+    										   if(inv[resultItem].stackSize + result.stackSize <= getInventoryStackLimit()){
+    											   progress++;  
+    										   }
+    										   else{
+    											   progress = 0;
+    										   }
+    									   }
+    									   else{
+    										   progress = 0;
+    									   }
+    								   }
+    								   else{
+    									   progress = 0;
+    								   }  
+    							   }
+    							   else{
+    								   progress = 0;
+    							   }
+    						   }
+    						   else{
+    							   progress = 0;
+    						   }
+    					   }
+    					   else{
+    						   progress = 0;
+    					   }
+    				   }
+    				   else{
+    					   if(inv[item] != null){
+    						   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
+    								   progress++;  
+    						   }
+    						   else{
+    							   progress = 0;
+    						   }
+    					   }
+    					   else{
+    						   progress = 0;
+    					   }
+    				   }
+    			   }
+    			   else{
+    				   progress = 0;
+    			   }
+    		   }
+    	   }
 
         @Override
         public ItemStack getStackInSlotOnClosing(int slot) {
@@ -76,13 +163,14 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
         @Override
         public void readFromNBT(NBTTagCompound tagCompound) {
                 super.readFromNBT(tagCompound);
+                progress = tagCompound.getShort("progressTime");
                 
         }
 
         @Override
         public void writeToNBT(NBTTagCompound tagCompound) {
                 super.writeToNBT(tagCompound);
-                                
+                tagCompound.setShort("progressTime", (short)progress);
                 NBTTagList itemList = new NBTTagList();
                 for (int i = 0; i < inv.length; i++) {
                         ItemStack stack = inv[i];
@@ -99,6 +187,24 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
 				@Override
 				public String getInventoryName() {
 					return "molecularscience.tileentityelectrolyzer";
+				}
+
+			    @SideOnly(Side.CLIENT)
+			    public int getCraftingProgressScaled(int par1){
+			        //return this.progress * par1 / ElectrolyzerResults.getMaxTime(0, 0);
+			    	return 0;
+			    }
+			    
+				public int getAvailableSlot(){
+					   for(int i = 0; i < inv.length - 1; i++){
+						   if(inv[i] != null){
+							   return i;
+						   }
+					   }
+					   return 0;
+					}
+				public boolean isBusy(){
+					return progress >= 0;
 				}
 
 				@Override
