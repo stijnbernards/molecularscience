@@ -12,7 +12,7 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
         private ItemStack[] inv;
 
         public TileEntityElectrolyzer(){
-                inv = new ItemStack[1];
+                inv = new ItemStack[2];
         }
         
         @Override

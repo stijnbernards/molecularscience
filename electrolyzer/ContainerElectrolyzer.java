@@ -11,7 +11,8 @@ public class ContainerElectrolyzer extends Container {
 
         public ContainerElectrolyzer (InventoryPlayer inventoryPlayer, TileEntityElectrolyzer te){
                 tileEntity = te;
-                addSlotToContainer(new Slot(tileEntity, 10, 10, 10));
+                addSlotToContainer(new Slot(tileEntity, 0, 22, 8));
+                addSlotToContainer(new Slot(tileEntity, 1, 76, 8));
                 bindPlayerInventory(inventoryPlayer);
         }
 
@@ -25,12 +26,12 @@ public class ContainerElectrolyzer extends Container {
                 for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 9; j++) {
                                 addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9,
-                                                8 + j * 18, 84 + i * 18));
+                                                8 + j * 18, 99 + i * 18));
                         }
                 }
 
                 for (int i = 0; i < 9; i++) {
-                        addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+                        addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 157));
                 }
         }
 

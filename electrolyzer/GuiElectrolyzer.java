@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiElectrolyzer extends GuiContainer {
 
-	private static final ResourceLocation Guitexture = new ResourceLocation("molecularscience:textures/gui/container/beacon.png");
+	private static final ResourceLocation Guitexture = new ResourceLocation("molecularscience","textures/gui/container/guielectrolyzer.png");
 	
     public GuiElectrolyzer (InventoryPlayer inventoryPlayer,
                     TileEntityElectrolyzer tileEntity) {
@@ -26,8 +26,8 @@ public class GuiElectrolyzer extends GuiContainer {
                     int par3) {
     		this.mc.getTextureManager().bindTexture(Guitexture);
             int x = (width - xSize) / 2;
-            int y = (height - ySize) / 2;
-            this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+            int y = (height - (ySize+27)) / 2;
+            this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize+27);
     }
 
 }
