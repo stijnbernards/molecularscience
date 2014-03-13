@@ -1,5 +1,6 @@
 package molecularscience.moditems;
 
+import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -55,31 +56,30 @@ public class TileEntityHeatConductant extends TileEntity{
    	
    	public void checkblocks(String block, String coord){
    		boolean aircool = true;
-			
 		String[] coords = coord.split(" ");
    		if(block.equals("Fire")){
-   			if(Temperature <= 600.0){
-   				Temperature = Temperature + 0.1;
+   			if(Temperature <= 100.0){
+   				Temperature = Temperature + 0.5;
    			}
    			aircool = false;
    		}
    		if(block.equals("Lava")){
    			if(Temperature <= 700.0){
-   				Temperature = Temperature + 0.5;
+   				Temperature = Temperature + 1;
    			}else{
    				
    			}
    			aircool = false;
    		}
-   		if(block.equals("Water")){
-   			if(Temperature >= 10.0){
-   				Temperature = Temperature - 20;
-   				if(Temperature >= 100){
-   					//worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
-   				}
-   			}
-   			aircool = false;
-   		}
+//   		if(block.equals("Water")){
+//   			if(Temperature >= 10.0){
+//   				Temperature = Temperature - 20;
+//   				if(Temperature >= 100){
+//   					//worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+//   				}
+//   			}
+//   			aircool = false;
+//   		}
    		if(block.contains("HeatConductant")){
    			int gettiletemp = 0;
    			
@@ -104,6 +104,18 @@ public class TileEntityHeatConductant extends TileEntity{
    			if(Temperature >= 20){
    				Temperature = Temperature - 0.3;
    			}
+   		}
+   		if(this.Temperature >= 100){
+	   		if(block.equals("Wood") || block.equals("Leaves")){
+	   			int meta = worldObj.getBlockMetadata(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+	   			aircool = false;
+	   			if(meta == 9 || meta == 5 || meta == 1){
+	   				Block water = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1])+1, zCoord + Integer.parseInt(coords[2]));
+	   				if(water.getLocalizedName().equals("Water")){
+	   					worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+	   				}
+	   			}
+	   		}
    		}
    	}
    	
