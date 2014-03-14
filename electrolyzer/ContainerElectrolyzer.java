@@ -21,7 +21,7 @@ public class ContainerElectrolyzer extends Container {
                 addSlotToContainer(new Slot(tileEntity, 3, 128, 29));
                 bindPlayerInventory(inventoryPlayer);
         }
-
+        
         @Override
         public boolean canInteractWith(EntityPlayer player) {
                 return tileEntity.isUseableByPlayer(player);

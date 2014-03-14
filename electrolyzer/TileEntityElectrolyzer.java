@@ -85,12 +85,18 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     						progress = 0;
     				   }
     				   if(inv[resultItem] != null){
+						   System.out.println("stap0");
     						   if(inv[resultItem].isItemEqual(result)){
+								   System.out.println("stap1");
     							   if(inv[resultItem].stackSize < getInventoryStackLimit() || inv[resultItem].stackSize < result.getItem().getItemStackLimit()){
+    								   System.out.println("stap2");
     								   if(inv[item] != null){
+    									   System.out.println("stap3");
     									   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
+    										   System.out.println("stap4");
     										   if(inv[resultItem].stackSize + result.stackSize <= getInventoryStackLimit()){
-    											   progress++;  
+    											   progress++;
+    											   System.out.println("++");
     										   }
     										   else{
     											   progress = 0;
@@ -112,12 +118,9 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     							   progress = 0;
     						   }
     					   }
-    					   else{
-    						   progress = 0;
-    					   }
-    				   }
     				   else{
     					   if(inv[item] != null){
+    						   System.out.println("isnull");
     						   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
     								   progress++;  
     						   }
@@ -134,6 +137,7 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     				   progress = 0;
     			   }
     		   }
+    	   }
     	   }
 
         @Override
