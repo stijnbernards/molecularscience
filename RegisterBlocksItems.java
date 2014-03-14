@@ -6,6 +6,7 @@ import molecularscience.blocks.BlockInsulator;
 import molecularscience.blocks.BlockOil;
 import molecularscience.blocks.BlockOre;
 import molecularscience.blocks.BlockSteam;
+import molecularscience.blocks.BlockWaterValve;
 import molecularscience.items.ItemEmptyjar;
 import molecularscience.items.ItemMineral;
 import molecularscience.items.ItemSample;
@@ -33,6 +34,7 @@ public class RegisterBlocksItems {
 	public static Block Insulator;
 	public static Block PineSteam;
 	public static Block PineOil;
+	public static Block WaterValve;
 //	public static Block ResearchTableIdle;
 //	public static Block ResearchTableActive;
 	
@@ -53,6 +55,7 @@ public class RegisterBlocksItems {
 	
 	public static void InitBlocks(){
         OrePlutonium = new BlockOre(Material.rock, 2).setHardness(3.0F).setBlockName("Plutoniumore");
+        WaterValve = new BlockWaterValve().setHardness(3.0F).setBlockName("WaterValve");
         PineSteam = new BlockSteam(Material.rock).setHardness(3.0F).setBlockName("PineSteam");
         PineOil = new BlockOil(Material.rock).setHardness(3.0F).setBlockName("PineOil");
         Insulator = new BlockInsulator(Material.rock).setHardness(3.0F).setBlockName("Insulator");
@@ -64,6 +67,7 @@ public class RegisterBlocksItems {
 //        ResearchTableIdle = new ResearchTable(false).setBlockName("ResearchTableIdle").setCreativeTab(MolecularScience.Blocks);
 //        ResearchTableActive = new ResearchTable(true).setBlockName("ResearchTableActive");
         
+        GameRegistry.registerBlock(WaterValve, "WaterValve");
         GameRegistry.registerBlock(OrePlutonium, "Plutoniumore");
         GameRegistry.registerBlock(PineOil, "PineOil");
         GameRegistry.registerBlock(PineSteam, "PineSteam");
