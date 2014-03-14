@@ -1,5 +1,6 @@
-package molecularscience.moditems;
+package molecularscience.tileentity;
 
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySteam extends TileEntity{
@@ -32,7 +33,7 @@ public class TileEntitySteam extends TileEntity{
    	    	}
    	    	if(gettiletemp <= 21){
    	    		if(this.getBlockType().getLocalizedName().contains("Pine Steam")){
-   	    			worldObj.setBlock(xCoord, yCoord, zCoord, BlocksItems.PineOil);
+   	    			worldObj.setBlock(xCoord, yCoord, zCoord, RegisterBlocksItems.PineOil);
    	   	    		//worldObj.setBlockToAir(xCoord, yCoord, zCoord);
    	    		}
    	    	}

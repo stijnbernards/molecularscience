@@ -1,6 +1,7 @@
-package molecularscience.moditems;
+package molecularscience.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import molecularscience.RegisterBlocksItems;
 import molecularscience.api.MolecularApi;
 import molecularscience.api.MolecularCraftingHandler;
 import net.minecraft.block.Block;
@@ -37,7 +38,7 @@ public class ItemEmptyjar extends Item
     {
     	Block block = par3World.getBlock(par4, par5, par6);
     	String name = block.getLocalizedName();
-    	ItemStack sample = new ItemStack(BlocksItems.Sample, 1);
+    	ItemStack sample = new ItemStack(RegisterBlocksItems.Sample, 1);
     	
     	if(name.contains(".")){
     		String[] naam = name.split("\\.");
@@ -55,7 +56,7 @@ public class ItemEmptyjar extends Item
     	if(sample.stackTagCompound.getString("Researched") == "yes")
         	sample.stackTagCompound.setString("Researched", "yes");
 
-    	par2EntityPlayer.inventory.consumeInventoryItem(BlocksItems.Emptyjar);
+    	par2EntityPlayer.inventory.consumeInventoryItem(RegisterBlocksItems.Emptyjar);
     	par2EntityPlayer.inventory.addItemStackToInventory(sample);
 		return false;
     }

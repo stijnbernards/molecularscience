@@ -2,7 +2,7 @@ package molecularscience.api;
 
 import java.util.List;
 
-import molecularscience.moditems.BlocksItems;
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
@@ -27,7 +27,7 @@ public class MSEventHandler {
 		
 		MolecularApi.itemAddInfo(event.toolTip, Itemname);
 		
-		if(event.itemStack.getItem() == BlocksItems.Mineral){
+		if(event.itemStack.getItem() == RegisterBlocksItems.Mineral){
 			switch(event.itemStack.getItemDamage()){
 			case 0:
 				MolecularApi.itemToolTip(event.toolTip, "Sylvite","item.Mineral.Sylvite");

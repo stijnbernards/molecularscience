@@ -1,13 +1,14 @@
-package molecularscience.moditems;
+package molecularscience.blocks;
 
 import molecularscience.MolecularScience;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class BlockInsulator extends Block{
+public class BlockOre extends Block{
 
-	public BlockInsulator(Material material) {
+	public BlockOre(Material material, int Harvestlevel) {
 		super(material);
 		this.setCreativeTab(MolecularScience.MBlocks);
+		this.setHarvestLevel("pickaxe", Harvestlevel);
 	}
 }

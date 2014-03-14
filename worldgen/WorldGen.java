@@ -2,7 +2,7 @@ package molecularscience.worldgen;
 
 import java.util.Random;
 
-import molecularscience.moditems.BlocksItems;
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -33,8 +33,8 @@ public class WorldGen implements IWorldGenerator {
 	    private void generateSurface(World world, Random random, int x, int z)
 	    {
 	    	//this.addOreSpawn(BlocksItems.ChalcopyrietOre, world, random, x, z, 16, 16, 30, 100, 5, 256);
-	        this.addOreSpawn(BlocksItems.OrePlutonium, world, random, x, z, 16, 16, 1, 5, 15, 50);
-	        this.addOreSpawn(BlocksItems.Evaporite, world, random, x, z, 16, 16, 20 + random.nextInt(6), 5, 5, 50);
+	        this.addOreSpawn(RegisterBlocksItems.OrePlutonium, world, random, x, z, 16, 16, 1, 5, 15, 50);
+	        this.addOreSpawn(RegisterBlocksItems.Evaporite, world, random, x, z, 16, 16, 20 + random.nextInt(6), 5, 5, 50);
 	    }
 	 
 	    private void generateNether(World world, Random random, int x, int z)

@@ -1,4 +1,4 @@
-package molecularscience.moditems;
+package molecularscience.blocks;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,6 +6,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import molecularscience.MolecularScience;
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
@@ -29,7 +30,7 @@ public class BlockEvaporite extends Block{
 	
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return BlocksItems.Mineral;
+        return RegisterBlocksItems.Mineral;
     }
 	
     public int damageDropped(int p_149692_1_){

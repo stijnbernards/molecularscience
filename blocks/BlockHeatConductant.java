@@ -1,9 +1,10 @@
-package molecularscience.moditems;
+package molecularscience.blocks;
 
 import java.util.List;
 import java.util.Random;
 
 import molecularscience.MolecularScience;
+import molecularscience.tileentity.TileEntityHeatConductant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

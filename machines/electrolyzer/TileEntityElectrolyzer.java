@@ -1,4 +1,4 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

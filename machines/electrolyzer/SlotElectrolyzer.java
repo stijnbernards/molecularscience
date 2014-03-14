@@ -1,4 +1,4 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

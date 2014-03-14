@@ -1,4 +1,4 @@
-package molecularscience.moditems;
+package molecularscience.items;
 
 import java.util.List;
 

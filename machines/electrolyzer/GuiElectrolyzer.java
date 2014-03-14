@@ -1,4 +1,4 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

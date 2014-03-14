@@ -1,4 +1,4 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;

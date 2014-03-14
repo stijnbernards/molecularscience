@@ -1,4 +1,4 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import java.util.Random;
 

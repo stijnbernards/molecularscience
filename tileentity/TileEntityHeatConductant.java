@@ -1,5 +1,6 @@
-package molecularscience.moditems;
+package molecularscience.tileentity;
 
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -11,7 +12,7 @@ public class TileEntityHeatConductant extends TileEntity{
 
 	double Temperature = 21;
 	
-	int color = 0x555555;
+	public int color = 0x555555;
 
 	@Override
    	public void writeToNBT(NBTTagCompound nbt)
@@ -116,7 +117,7 @@ public class TileEntityHeatConductant extends TileEntity{
 	   				Block water4 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2])+1);
 	   				Block water5 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2])-1);
 	   				if(water.getLocalizedName().equals("Water") || water2.getLocalizedName().equals("Water") || water3.getLocalizedName().equals("Water") || water4.getLocalizedName().equals("Water") || water5.getLocalizedName().equals("Water")){
-	   					worldObj.setBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]), BlocksItems.PineSteam);
+	   					worldObj.setBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]), RegisterBlocksItems.PineSteam);
 	   				}
 	   			}
 	   		}

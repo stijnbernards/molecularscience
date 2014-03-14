@@ -1,10 +1,10 @@
 package molecularscience;
 
 import molecularscience.api.MolecularApi;
-import molecularscience.electrolyzer.TileEntityElectrolyzer;
-import molecularscience.moditems.TileEntityHeatConductant;
-import molecularscience.moditems.TileEntityOil;
-import molecularscience.moditems.TileEntitySteam;
+import molecularscience.machines.electrolyzer.TileEntityElectrolyzer;
+import molecularscience.tileentity.TileEntityHeatConductant;
+import molecularscience.tileentity.TileEntityOil;
+import molecularscience.tileentity.TileEntitySteam;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Config {

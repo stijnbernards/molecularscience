@@ -1,10 +1,10 @@
-package molecularscience.electrolyzer;
+package molecularscience.machines.electrolyzer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import scala.annotation.meta.field;
-import molecularscience.moditems.BlocksItems;
+import molecularscience.RegisterBlocksItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +14,7 @@ public class ElectrolyzerResults {
 	private static Map<Integer, Object[]> results = new HashMap<Integer, Object[]>();
 	
 	public static void initResult(){
-		addResult(0, 0, BlocksItems.Emptyjar.getUnlocalizedName(), 1, BlocksItems.Sample, 1);
+		addResult(0, 0, RegisterBlocksItems.Emptyjar.getUnlocalizedName(), 1, RegisterBlocksItems.Sample, 1);
 	}
 	public static ItemStack getResult(int slot, Item type){
 		for(int i = 0; i < results.size(); i++){

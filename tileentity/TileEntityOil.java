@@ -1,4 +1,4 @@
-package molecularscience.moditems;
+package molecularscience.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 

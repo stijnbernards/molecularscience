@@ -1,8 +1,8 @@
 package molecularscience.api;
 
-import molecularscience.electrolyzer.ContainerElectrolyzer;
-import molecularscience.electrolyzer.GuiElectrolyzer;
-import molecularscience.electrolyzer.TileEntityElectrolyzer;
+import molecularscience.machines.electrolyzer.ContainerElectrolyzer;
+import molecularscience.machines.electrolyzer.GuiElectrolyzer;
+import molecularscience.machines.electrolyzer.TileEntityElectrolyzer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

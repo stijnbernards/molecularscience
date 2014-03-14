@@ -1,6 +1,14 @@
-package molecularscience.moditems;
+package molecularscience;
 
-import molecularscience.MolecularScience;
+import molecularscience.blocks.BlockEvaporite;
+import molecularscience.blocks.BlockHeatConductant;
+import molecularscience.blocks.BlockInsulator;
+import molecularscience.blocks.BlockOil;
+import molecularscience.blocks.BlockOre;
+import molecularscience.blocks.BlockSteam;
+import molecularscience.items.ItemEmptyjar;
+import molecularscience.items.ItemMineral;
+import molecularscience.items.ItemSample;
 import molecularscience.worldgen.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -9,7 +17,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlocksItems {
+public class RegisterBlocksItems {
 	//items
 	public static Item Emptyjar;
 	public static Item Sample;

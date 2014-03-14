@@ -1,8 +1,9 @@
-package molecularscience.moditems;
+package molecularscience.blocks;
 
 import java.util.Random;
 
 import molecularscience.MolecularScience;
+import molecularscience.tileentity.TileEntityOil;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

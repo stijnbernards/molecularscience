@@ -1,7 +1,7 @@
 package molecularscience;
 
-import molecularscience.electrolyzer.TileEntityElectrolyzer;
-import molecularscience.electrolyzer.TileEntityElectrolyzerRenderer;
+import molecularscience.machines.electrolyzer.TileEntityElectrolyzer;
+import molecularscience.machines.electrolyzer.TileEntityElectrolyzerRenderer;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
