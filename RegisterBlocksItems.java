@@ -10,6 +10,7 @@ import molecularscience.blocks.BlockWaterValve;
 import molecularscience.items.ItemEmptyjar;
 import molecularscience.items.ItemMineral;
 import molecularscience.items.ItemSample;
+import molecularscience.machines.research.BlockResearchTable;
 import molecularscience.worldgen.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -35,8 +36,7 @@ public class RegisterBlocksItems {
 	public static Block PineSteam;
 	public static Block PineOil;
 	public static Block WaterValve;
-//	public static Block ResearchTableIdle;
-//	public static Block ResearchTableActive;
+	public static Block ResearchTable;
 	
 	public static void WorldGen(){
 		GameRegistry.registerWorldGenerator(new WorldGen(), 1);
@@ -64,8 +64,7 @@ public class RegisterBlocksItems {
         BlockSlowHeatConductant = new BlockHeatConductant(Material.rock, 50).setHardness(3.0F).setBlockName("BlockSlowHeatConductant");
         BlockMediumHeatConductant = new BlockHeatConductant(Material.rock, 25).setHardness(3.0F).setBlockName("BlockMediumHeatConductant");
         BlockFastHeatConductant = new BlockHeatConductant(Material.rock, 5).setHardness(3.0F).setBlockName("BlockFastHeatConductant");
-//        ResearchTableIdle = new ResearchTable(false).setBlockName("ResearchTableIdle").setCreativeTab(MolecularScience.Blocks);
-//        ResearchTableActive = new ResearchTable(true).setBlockName("ResearchTableActive");
+        ResearchTable = new BlockResearchTable().setBlockName("ResearchTable").setCreativeTab(MolecularScience.MBlocks);
         
         GameRegistry.registerBlock(WaterValve, "WaterValve");
         GameRegistry.registerBlock(OrePlutonium, "Plutoniumore");
@@ -77,7 +76,6 @@ public class RegisterBlocksItems {
         GameRegistry.registerBlock(ChalcopyrietOre, "ChalcopyrietOre");
         GameRegistry.registerBlock(BlockSlowHeatConductant, "BlockSlowHeatConductant");
         GameRegistry.registerBlock(BlockMediumHeatConductant, "BlockMediumHeatConductant");
-//        GameRegistry.registerBlock(ResearchTableIdle, "ResearchTableIdle");
-//        GameRegistry.registerBlock(ResearchTableActive, "ResearchTableActive");
+        GameRegistry.registerBlock(ResearchTable, "ResearchTable");
 	}
 }

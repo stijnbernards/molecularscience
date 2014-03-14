@@ -1,6 +1,8 @@
-package molecularscience.machines.electrolyzer;
+package molecularscience.machines.research;
 
-import molecularscience.RegisterBlocksItems;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import molecularscience.api.ExtendedPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -8,18 +10,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityElectrolyzer extends TileEntity implements IInventory {
+public class TileEntityResearchTable extends TileEntity implements IInventory {
 
         private ItemStack[] inv;
     	private int time;
         public int progress;
-        private int resultItem = 3;
+        private int resultItem = 1;
         
-        public TileEntityElectrolyzer(){
-                inv = new ItemStack[4];
+        public TileEntityResearchTable(){
+                inv = new ItemStack[2];
         }
         
         @Override
@@ -62,22 +62,16 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     		   int item = getAvailableSlot();
     		   if(inv[item] != null){
     			   Item type = inv[item].getItem();
-    			   ItemStack result = ElectrolyzerResults.getResult(item, type);
-    			   time = ElectrolyzerResults.getMaxTime(item, type);
+    			   time = 50;
 
-    			   if(result != null){
     				   if(progress > time){
     						if (inv[resultItem] == null){
-    							inv[resultItem] = result.copy();
+    							inv[resultItem] = new ItemStack(type,1).copy();
+    							ExtendedPlayer.Research(type.getUnlocalizedName());
     			            }
-    						else if (inv[resultItem].isItemEqual(result)){
-    							if(inv[resultItem].stackSize + result.stackSize <= getInventoryStackLimit()){
-    								inv[resultItem].stackSize += result.stackSize;
-    							}
-    						}
     						if(inv[item] != null){
-    							if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
-    								inv[item].stackSize -= ElectrolyzerResults.getReduceItem(item, type);
+    							if(!((inv[item].stackSize - 1) < 0)){
+    								inv[item].stackSize -= 1;
     							}
     							if(inv[item].stackSize <= 0){
     								inv[item] = null;
@@ -86,36 +80,11 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     						progress = 0;
     				   }
     				   if(inv[resultItem] != null){
-    						   if(inv[resultItem].isItemEqual(result)){
-    							   if(inv[resultItem].stackSize < getInventoryStackLimit() || inv[resultItem].stackSize < result.getItem().getItemStackLimit()){
-    								   if(inv[item] != null){
-    									   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
-    										   if(inv[resultItem].stackSize + result.stackSize <= getInventoryStackLimit()){
-    											   progress++;
-    										   }
-    										   else{
-    											   progress = 0;
-    										   }
-    									   }
-    									   else{
-    										   progress = 0;
-    									   }
-    								   }
-    								   else{
-    									   progress = 0;
-    								   }  
-    							   }
-    							   else{
-    								   progress = 0;
-    							   }
-    						   }
-    						   else{
-    							   progress = 0;
-    						   }
+    					   progress = 0;
     					   }
     				   else{
     					   if(inv[item] != null){
-    						   if(!((inv[item].stackSize - ElectrolyzerResults.getReduceItem(item, type)) < 0)){
+    						   if(!((inv[item].stackSize - 1) < 0)){
     								   progress++;  
     						   }
     						   else{
@@ -130,7 +99,6 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
     			   else{
     				   progress = 0;
     			   }
-    		   }
     	   }
     	   }
 
@@ -189,7 +157,7 @@ public class TileEntityElectrolyzer extends TileEntity implements IInventory {
 
 			    @SideOnly(Side.CLIENT)
 			    public int getCraftingProgressScaled(int par1){
-			        return this.progress * par1 / ElectrolyzerResults.getMaxTime(0, RegisterBlocksItems.Mineral);
+			        return this.progress * par1 / 50;
 			    }
 			    
 				public int getAvailableSlot(){

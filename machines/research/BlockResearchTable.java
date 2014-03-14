@@ -1,4 +1,4 @@
-package molecularscience.machines.electrolyzer;
+package molecularscience.machines.research;
 
 import java.util.Random;
 
@@ -15,24 +15,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockElectrolyzer extends BlockContainer {
+public class BlockResearchTable extends BlockContainer {
 
-        public BlockElectrolyzer () {
+        public BlockResearchTable () {
                 super(Material.wood);
                 setHardness(2.0F);
                 setResistance(5.0F);
-                setBlockName("Electrolyzer");
+                setBlockName("Research");
                 setCreativeTab(MolecularScience.MBlocks);
         }
 
         @Override
         public boolean onBlockActivated(World world, int x, int y, int z,
-                        EntityPlayer player, int metadata, float what, float these, float are) {
+                EntityPlayer player, int metadata, float what, float these, float are) {
                 TileEntity tileEntity = world.getTileEntity(x, y, z);
                 if (tileEntity == null || player.isSneaking()) {
                         return false;
                 }
-        player.openGui(MolecularScience.instance, 0, world, x, y, z);
+                player.openGui(MolecularScience.instance, 0, world, x, y, z);
                 return true;
         }
 
@@ -78,7 +78,7 @@ public class BlockElectrolyzer extends BlockContainer {
 
 		@Override
 		public TileEntity createNewTileEntity(World var1, int var2) {
-			return new TileEntityElectrolyzer();
+			return new TileEntityResearchTable();
 		}
 		
         @Override

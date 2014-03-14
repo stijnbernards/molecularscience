@@ -1,4 +1,4 @@
-package molecularscience.machines.electrolyzer;
+package molecularscience.machines.research;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -12,11 +12,11 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-public class TileEntityElectrolyzerRenderer extends TileEntitySpecialRenderer {
-    private final ElectrolyzerModel model;
+public class TileEntityResearchTableRenderer extends TileEntitySpecialRenderer {
+    private final ResearchTableModel model;
     
-    public TileEntityElectrolyzerRenderer() {
-            this.model = new ElectrolyzerModel();
+    public TileEntityResearchTableRenderer() {
+            this.model = new ResearchTableModel();
     }
     
     private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
@@ -29,7 +29,7 @@ public class TileEntityElectrolyzerRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
             GL11.glPushMatrix();
             GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-            ResourceLocation textures = (new ResourceLocation("[yourmodidhere]:textures/blocks/TrafficLightPoleRed.png")); 
+            ResourceLocation textures = (new ResourceLocation("uiytuyrt")); 
             Minecraft.getMinecraft().renderEngine.bindTexture(textures);                       
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -37,7 +37,7 @@ public class TileEntityElectrolyzerRenderer extends TileEntitySpecialRenderer {
             GL11.glPopMatrix();
             GL11.glPopMatrix();
     }
-     
+      
     private void adjustLightFixture(World world, int i, int j, int k, Block block) {
             Tessellator tess = Tessellator.instance;
             int skyLight = world.getLightBrightnessForSkyBlocks(i, j, k, 0);

@@ -27,7 +27,7 @@ public class ElectrolyzerResults {
 		return null;
 	}
 	
-	public static int getMaxTime(int slot, Item type){
+	public static int getMaxTime(int slot, Item i){
 		return 50;
 	}
 	

@@ -3,6 +3,9 @@ package molecularscience.api;
 import molecularscience.machines.electrolyzer.ContainerElectrolyzer;
 import molecularscience.machines.electrolyzer.GuiElectrolyzer;
 import molecularscience.machines.electrolyzer.TileEntityElectrolyzer;
+import molecularscience.machines.research.ContainerResearchTable;
+import molecularscience.machines.research.GuiResearchTable;
+import molecularscience.machines.research.TileEntityResearchTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -17,6 +20,9 @@ public class GuiHandler implements IGuiHandler {
                 if(tileEntity instanceof TileEntityElectrolyzer){
                         return new ContainerElectrolyzer(player.inventory, (TileEntityElectrolyzer) tileEntity);
                 }
+                if(tileEntity instanceof TileEntityResearchTable){
+                    return new ContainerResearchTable(player.inventory, (TileEntityResearchTable) tileEntity);
+                }
                 return null;
         }
 
@@ -27,6 +33,9 @@ public class GuiHandler implements IGuiHandler {
                 TileEntity tileEntity = world.getTileEntity(x, y, z);
                 if(tileEntity instanceof TileEntityElectrolyzer){
                         return new GuiElectrolyzer(player.inventory, (TileEntityElectrolyzer) tileEntity);
+                }
+                if(tileEntity instanceof TileEntityResearchTable){
+                    return new GuiResearchTable(player.inventory, (TileEntityResearchTable) tileEntity);
                 }
                 return null;
 

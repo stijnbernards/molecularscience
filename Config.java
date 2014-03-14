@@ -2,6 +2,7 @@ package molecularscience;
 
 import molecularscience.api.MolecularApi;
 import molecularscience.machines.electrolyzer.TileEntityElectrolyzer;
+import molecularscience.machines.research.TileEntityResearchTable;
 import molecularscience.tileentity.TileEntityHeatConductant;
 import molecularscience.tileentity.TileEntityOil;
 import molecularscience.tileentity.TileEntitySteam;
@@ -84,5 +85,6 @@ public class Config {
 		GameRegistry.registerTileEntity(TileEntitySteam.class, "molecularscience.steam");
 		GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "molecularscience.electrolyzer");
 		GameRegistry.registerTileEntity(TileEntityOil.class, "molecularscience.oil");
+		GameRegistry.registerTileEntity(TileEntityResearchTable.class, "molecularscience.research");
 	}
 }
