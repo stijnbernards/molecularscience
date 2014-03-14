@@ -61,10 +61,10 @@ public class BlocksItems {
         GameRegistry.registerBlock(PineSteam, "PineSteam");
         GameRegistry.registerBlock(Insulator, "Insulator");
         GameRegistry.registerBlock(Evaporite, "Evaporite");
+        GameRegistry.registerBlock(BlockFastHeatConductant, "BlockFastHeatConductant");
         GameRegistry.registerBlock(ChalcopyrietOre, "ChalcopyrietOre");
         GameRegistry.registerBlock(BlockSlowHeatConductant, "BlockSlowHeatConductant");
         GameRegistry.registerBlock(BlockMediumHeatConductant, "BlockMediumHeatConductant");
-        GameRegistry.registerBlock(BlockFastHeatConductant, "BlockFastHeatConductant");
 //        GameRegistry.registerBlock(ResearchTableIdle, "ResearchTableIdle");
 //        GameRegistry.registerBlock(ResearchTableActive, "ResearchTableActive");
 	}
