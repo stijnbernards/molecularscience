@@ -31,11 +31,11 @@ public class BlockSteam extends BlockContainer{
 		int rand6 = rand.nextInt(2);
 		if(p_149674_1_.getBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4).getLocalizedName().contains("air")){
 			p_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);
-			p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4, this);
+			p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2, p_149674_4_+rand3-rand4, this);
 		}
 		if(p_149674_1_.getBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4).getLocalizedName().contains("Water")){
 			p_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);
-			p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4, this);
+			p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2, p_149674_4_+rand3-rand4, this);
 		}
     }
 }

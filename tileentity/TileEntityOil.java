@@ -11,6 +11,6 @@ public class TileEntityOil extends TileEntity{
    	
    	@Override
    	public void updateEntity() {
-   		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, this.getBlockType(), 1);
+   		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, this.getBlockType(), 4);
    	}
 }

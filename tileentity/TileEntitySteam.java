@@ -34,7 +34,6 @@ public class TileEntitySteam extends TileEntity{
    	    	if(gettiletemp <= 21){
    	    		if(this.getBlockType().getLocalizedName().contains("Pine Steam")){
    	    			worldObj.setBlock(xCoord, yCoord, zCoord, RegisterBlocksItems.PineOil);
-   	   	    		//worldObj.setBlockToAir(xCoord, yCoord, zCoord);
    	    		}
    	    	}
    		}
