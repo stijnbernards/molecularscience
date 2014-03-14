@@ -61,13 +61,14 @@ public class TileEntityResearchTable extends TileEntity implements IInventory {
     	   if(!worldObj.isRemote){
     		   int item = getAvailableSlot();
     		   if(inv[item] != null){
-    			   Item type = inv[item].getItem();
+    			   ItemStack type = inv[item];
     			   time = 50;
 
     				   if(progress > time){
     						if (inv[resultItem] == null){
-    							inv[resultItem] = new ItemStack(type,1).copy();
-    							ExtendedPlayer.Research(type.getUnlocalizedName());
+    							inv[resultItem] = type.copy();
+    							String[] ding = type.getDisplayName().split(" ");
+    							ExtendedPlayer.Research(ding[0]);
     			            }
     						if(inv[item] != null){
     							if(!((inv[item].stackSize - 1) < 0)){
