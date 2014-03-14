@@ -23,6 +23,8 @@ public class BlocksItems {
 	public static Block BlockFastHeatConductant;
 	public static Block ChalcopyrietOre;
 	public static Block Insulator;
+	public static Block PineSteam;
+	public static Block PineOil;
 //	public static Block ResearchTableIdle;
 //	public static Block ResearchTableActive;
 	
@@ -43,6 +45,8 @@ public class BlocksItems {
 	
 	public static void InitBlocks(){
         OrePlutonium = new BlockOre(Material.rock, 2).setHardness(3.0F).setBlockName("Plutoniumore");
+        PineSteam = new BlockSteam(Material.rock).setHardness(3.0F).setBlockName("PineSteam");
+        PineOil = new BlockOil(Material.rock).setHardness(3.0F).setBlockName("PineOil");
         Insulator = new BlockInsulator(Material.rock).setHardness(3.0F).setBlockName("Insulator");
         Evaporite = new BlockEvaporite(Material.rock).setHardness(3.0F).setBlockName("Evaporite");
         ChalcopyrietOre = new BlockOre(Material.rock,2).setHardness(3.0F).setBlockName("ChalcopyrietOre");
@@ -53,6 +57,8 @@ public class BlocksItems {
 //        ResearchTableActive = new ResearchTable(true).setBlockName("ResearchTableActive");
         
         GameRegistry.registerBlock(OrePlutonium, "Plutoniumore");
+        GameRegistry.registerBlock(PineOil, "PineOil");
+        GameRegistry.registerBlock(PineSteam, "PineSteam");
         GameRegistry.registerBlock(Insulator, "Insulator");
         GameRegistry.registerBlock(Evaporite, "Evaporite");
         GameRegistry.registerBlock(ChalcopyrietOre, "ChalcopyrietOre");

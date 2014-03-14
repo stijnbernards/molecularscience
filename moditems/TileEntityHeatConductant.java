@@ -71,15 +71,15 @@ public class TileEntityHeatConductant extends TileEntity{
    			}
    			aircool = false;
    		}
-//   		if(block.equals("Water")){
-//   			if(Temperature >= 10.0){
-//   				Temperature = Temperature - 20;
-//   				if(Temperature >= 100){
-//   					//worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
-//   				}
-//   			}
-//   			aircool = false;
-//   		}
+   		if(block.equals("Water")){
+   			if(Temperature >= 10.0){
+   				Temperature = Temperature - 0.1;
+   				if(Temperature >= 100){
+   					//worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+   				}
+   			}
+   			aircool = false;
+   		}
    		if(block.contains("HeatConductant")){
    			int gettiletemp = 0;
    			
@@ -111,8 +111,12 @@ public class TileEntityHeatConductant extends TileEntity{
 	   			aircool = false;
 	   			if(meta == 9 || meta == 5 || meta == 1){
 	   				Block water = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1])+1, zCoord + Integer.parseInt(coords[2]));
-	   				if(water.getLocalizedName().equals("Water")){
-	   					worldObj.setBlockToAir(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+	   				Block water2 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0])+1, yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+	   				Block water3 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0])-1, yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]));
+	   				Block water4 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2])+1);
+	   				Block water5 = worldObj.getBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2])-1);
+	   				if(water.getLocalizedName().equals("Water") || water2.getLocalizedName().equals("Water") || water3.getLocalizedName().equals("Water") || water4.getLocalizedName().equals("Water") || water5.getLocalizedName().equals("Water")){
+	   					worldObj.setBlock(xCoord + Integer.parseInt(coords[0]), yCoord + Integer.parseInt(coords[1]), zCoord + Integer.parseInt(coords[2]), BlocksItems.PineSteam);
 	   				}
 	   			}
 	   		}

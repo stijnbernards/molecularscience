@@ -1,13 +1,11 @@
 package molecularscience;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import cpw.mods.fml.common.registry.GameRegistry;
-import molecularscience.api.ExtendedPlayer;
 import molecularscience.api.MolecularApi;
-import molecularscience.moditems.BlocksItems;
+import molecularscience.electrolyzer.TileEntityElectrolyzer;
 import molecularscience.moditems.TileEntityHeatConductant;
+import molecularscience.moditems.TileEntityOil;
+import molecularscience.moditems.TileEntitySteam;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Config {
 	
@@ -83,5 +81,8 @@ public class Config {
 	
 	public static void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityHeatConductant.class, "molecularscience.heatconductant");
+		GameRegistry.registerTileEntity(TileEntitySteam.class, "molecularscience.steam");
+		GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "molecularscience.electrolyzer");
+		GameRegistry.registerTileEntity(TileEntityOil.class, "molecularscience.oil");
 	}
 }

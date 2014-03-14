@@ -3,6 +3,7 @@ package molecularscience;
 import molecularscience.api.GuiHandler;
 import molecularscience.api.MSEventHandler;
 import molecularscience.electrolyzer.BlockElectrolyzer;
+import molecularscience.electrolyzer.ElectrolyzerResults;
 import molecularscience.electrolyzer.TileEntityElectrolyzer;
 import molecularscience.moditems.BlocksItems;
 import net.minecraft.block.Block;
@@ -64,7 +65,6 @@ public class MolecularScience {
 	public void preInit(FMLPreInitializationEvent event){
         blockTiny = new BlockElectrolyzer();
         GameRegistry.registerBlock(blockTiny, "blockTiny");
-        GameRegistry.registerTileEntity(TileEntityElectrolyzer.class, "containerTiny");
 		BlocksItems.InitItems();
 		BlocksItems.InitBlocks();
 		BlocksItems.WorldGen();
@@ -75,6 +75,7 @@ public class MolecularScience {
 		Config.registerTileEntity();
         proxy.registerRenderers();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        ElectrolyzerResults.initResult();
 	}
 	
 	@EventHandler
