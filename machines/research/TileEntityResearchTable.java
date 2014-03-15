@@ -170,7 +170,7 @@ public class TileEntityResearchTable extends TileEntity implements IInventory {
 					   return 0;
 					}
 				public boolean isBusy(){
-					return progress >= 0;
+					return false;
 				}
 
 				@Override

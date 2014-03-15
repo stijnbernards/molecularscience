@@ -15,8 +15,8 @@ public class ContainerResearchTable extends Container {
 
         public ContainerResearchTable (InventoryPlayer inventoryPlayer, TileEntityResearchTable te){
                 tileEntity = te;
-                addSlotToContainer(new Slot(tileEntity, 0, 22, 8));
-                addSlotToContainer(new Slot(tileEntity, 1, 128, 29));
+                addSlotToContainer(new Slot(tileEntity, 0, 26, 36));
+                addSlotToContainer(new Slot(tileEntity, 1, 134, 36));
                 bindPlayerInventory(inventoryPlayer);
         }
         
@@ -30,12 +30,12 @@ public class ContainerResearchTable extends Container {
                 for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 9; j++) {
                                 addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9,
-                                                8 + j * 18, 99 + i * 18));
+                                                8 + j * 18, 76 + i * 18));
                         }
                 }
 
                 for (int i = 0; i < 9; i++) {
-                        addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 157));
+                        addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 134));
                 }
         }
 

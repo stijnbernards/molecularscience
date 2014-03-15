@@ -27,6 +27,7 @@ public class BlockHeatConductant extends BlockContainer{
 		super(material);
 		this.setCreativeTab(MolecularScience.MBlocks);
 		this.setBlockTextureName("molecularscience:BlockHeatConductant");
+		this.setBlockBounds(0.01F, 0.01F, 0.01F, 0.99F, 0.99F, 0.99F);
 	}
     
 	@Override
@@ -39,7 +40,15 @@ public class BlockHeatConductant extends BlockContainer{
     @Override
     public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
     {
-        p_149670_5_.attackEntityFrom(DamageSource.fallingBlock, 2);
+    	int temp = 0;
+    	TileEntityHeatConductant tile = (TileEntityHeatConductant) p_149670_1_.getTileEntity(p_149670_2_, p_149670_3_, p_149670_4_);
+    	if (tile != null)
+    	{
+    		temp = tile.color;
+    	}
+    	if(temp >= 100){
+    		p_149670_5_.attackEntityFrom(DamageSource.lava, 3);
+    	}
     }
 	
     @SideOnly(Side.CLIENT)
