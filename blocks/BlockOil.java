@@ -43,21 +43,11 @@ public class BlockOil extends BlockContainer{
     	}
 		
 		if(p_149674_1_.getBlock(p_149674_2_+rand1-rand6, p_149674_3_-rand5, p_149674_4_+rand3-rand4).getLocalizedName().contains("air") || p_149674_1_.getBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4).getLocalizedName().contains("water")){
-			System.out.println(hasdust);
-			if(p_149674_1_.getBlock(p_149674_2_+rand1-rand6, p_149674_3_+rand2-rand5, p_149674_4_+rand3-rand4).getLocalizedName().contains("water") && hasdust == true ){
-				p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, RegisterBlocksItems.BlockSlag);
-		    	Item drop = RegisterBlocksItems.Copperdust;
-		    	 EntityItem entityItem = new EntityItem(p_149674_1_,
-		    			 p_149674_2_, p_149674_3_, p_149674_4_,
-		                 new ItemStack(drop, 1));
-		    	 p_149674_1_.spawnEntityInWorld(entityItem);
+			p_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);
+			if(p_149674_1_.getBlock(p_149674_2_, p_149674_3_-1, p_149674_4_).getLocalizedName().contains("air")){
+				p_149674_1_.setBlock(p_149674_2_, p_149674_3_-1, p_149674_4_, this);
 			}else{
-				p_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);
-				if(p_149674_1_.getBlock(p_149674_2_, p_149674_3_-1, p_149674_4_).getLocalizedName().contains("air")){
-					p_149674_1_.setBlock(p_149674_2_, p_149674_3_-1, p_149674_4_, this);
-				}else{
-					p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_-rand5, p_149674_4_+rand3-rand4, this);
-				}
+				p_149674_1_.setBlock(p_149674_2_+rand1-rand6, p_149674_3_-rand5, p_149674_4_+rand3-rand4, this);
 			}
 		}
     }
@@ -67,13 +57,12 @@ public class BlockOil extends BlockContainer{
     		String entity = p_149670_5_.toString();
     		p_149670_1_.removeEntity(p_149670_5_);;
     		if(entity.contains("item.item.Chalcopyrietdust")){
-    			//if(this.getLocalizedName().contains("PineOil")){
-    		    	TileEntityOil tile = (TileEntityOil) p_149670_1_.getTileEntity(p_149670_2_, p_149670_3_, p_149670_4_);
-    		    	if (tile != null)
-    		    	{
-    		    		tile.hasdust = true;
-    		    	}
-    			//}
+    			p_149670_1_.setBlock(p_149670_2_, p_149670_3_, p_149670_4_, RegisterBlocksItems.BlockSlag);
+		    	Item drop = RegisterBlocksItems.Copperdust;
+		    	 EntityItem entityItem = new EntityItem(p_149670_1_,
+		    			 p_149670_2_, p_149670_3_, p_149670_4_,
+		                 new ItemStack(drop, 1));
+		    	 p_149670_1_.spawnEntityInWorld(entityItem);
     		}
     	}
     }

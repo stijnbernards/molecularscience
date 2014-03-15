@@ -10,4 +10,9 @@ public class BlockSlag extends Block{
 		this.setCreativeTab(MolecularScience.MBlocks);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.2F, 1.0F);
 	}
+	
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
 }
